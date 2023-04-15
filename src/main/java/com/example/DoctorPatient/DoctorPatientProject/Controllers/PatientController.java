@@ -18,9 +18,6 @@ public class PatientController {
     @PostMapping("api/patients")
     public ResponseEntity addPatient(@RequestBody Patient patient){
 
-        if(patient.getSymptom()!=Backpain || patient.getSymptom()!=Skin_burn || patient.getSymptom()!=Skin_infection || patient.getSymptom()!=Arthritis || patient.getSymptom()!=Tissue_injuries || patient.getSymptom()!=Dysmenorrbea || patient.getSymptom()!=Ear_pain ){
-            return new ResponseEntity<>("Enter correct Symptom",HttpStatus.BAD_REQUEST);
-        }
         return new ResponseEntity<>(patientService.addPatient(patient), HttpStatus.CREATED);
     }
 
